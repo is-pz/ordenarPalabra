@@ -1,7 +1,6 @@
 <?php
-
+//Reciben las palabras
 $palabras = $_POST["palabras"];
-
 $palabrasOrdenadas = $_POST["palabrasOrdenada"];
 
 ?>
@@ -34,12 +33,17 @@ $palabrasOrdenadas = $_POST["palabrasOrdenada"];
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Imprime las palabras ordenadas y desordenadas -->
                     <?php
                         for($i = 0; $i<count($palabras); $i++){?>
                             <tr>
-                                <td class="col-lg-4" style="border: 1px solid;"><?php echo $palabras[$i];?> <?php if($palabras[$i] == $palabrasOrdenadas[$i]){?> 
-                                    <i class="fa fa-check"> Correcto</i> <?php }else{ ?> 
-                                    <i class="fa fa-times"> Incorrecto</i> <?php } ?> </td>
+                                <td class="col-lg-4" style="border: 1px solid;"><?php echo $palabras[$i];?> 
+                                    <!-- Verifica que las palabras esten correctas y agrega un icono para saber si es correcta o incorrecta -->
+                                    <?php if($palabras[$i] == $palabrasOrdenadas[$i]){?> 
+                                        <i class="fa fa-check"> Correcto</i> <?php }else{ ?> 
+                                        <i class="fa fa-times"> Incorrecto</i> 
+                                    <?php } ?>
+                                </td>
                                 <td class="col-lg-4" style="border: 1px solid;"><?php echo $palabrasOrdenadas[$i]; ?></td>
                             </tr>
                     <?php } ?>

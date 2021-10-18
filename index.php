@@ -1,9 +1,11 @@
 <?php
-
+//Array de palabras correctas
 $palabras = array("sol", "luna", "cielo");
 
+//Array de palabras desordenadas
 $palabrasDesordenadas = array();
 
+//Desordena las palabras
 for($i = 0; $i < count($palabras); $i++){
     $palabrasDesordenadas[$i] = str_shuffle($palabras[$i]);
 }
@@ -30,9 +32,11 @@ for($i = 0; $i < count($palabras); $i++){
       </div>
       <div class="row offset-5">
           <form action="./analisis.php" method="POST">
+          <!-- Agrega inputs de tipo hidden de las palabras ordenadas -->
             <?php for($i = 0; $i<count($palabras); $i++){?>
                   <input type="hidden" name="palabrasOrdenada[<?php echo $i ?>]" value="<?php echo $palabras[$i]; ?>">
             <?php } ?>
+            <!-- Agrega inputs y labels para las pabras desordenadas -->
             <?php
               for($i = 0; $i<count($palabras); $i++){?>
                     <div class="form-group" style="margin: auto;">
